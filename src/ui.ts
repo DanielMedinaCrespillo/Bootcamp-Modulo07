@@ -13,6 +13,7 @@ const plasmarCarta = (UrlCarta: string) => {
 
   if (elementImagenCarta && elementImagenCarta instanceof HTMLImageElement) {
     elementImagenCarta.src = UrlCarta;
+    elementImagenCarta.style.display = "block";
   }
 };
 

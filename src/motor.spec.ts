@@ -1,5 +1,10 @@
 import { vi } from "vitest";
-import { gameOver, tipoPuntuacion } from "./motor";
+import {
+  gameOver,
+  generarNumeroCarta,
+  sumaPuntuacion,
+  tipoPuntuacion,
+} from "./motor";
 import { partida } from "./modelo";
 
 describe("gameOver", () => {
@@ -67,6 +72,168 @@ describe("tipoPuntuacion", () => {
     //Act
     const resultado = tipoPuntuacion(partida.puntos);
 
+    //Assert
+    expect(resultado).toBe(resultadoEsperado);
+  });
+});
+
+describe("generarNumeroCarta", () => {
+  it("Operacion en la que el numero generado del 8 al 10 se sume +2, en este caso 8", () => {
+    //Arrange
+    const resultadoEsperado: number = 10;
+    const numeroAleatorio: number = 8;
+
+    //Act
+    const resultado = generarNumeroCarta(numeroAleatorio);
+
+    //Assert
+    expect(resultado).toBe(resultadoEsperado);
+  });
+
+  it("Operacion en la que el numero generado del 8 al 10 se sume +2, en este caso 9", () => {
+    //Arrange
+    const resultadoEsperado: number = 11;
+    const numeroAleatorio: number = 9;
+
+    //Act
+    const resultado = generarNumeroCarta(numeroAleatorio);
+
+    //Assert
+    expect(resultado).toBe(resultadoEsperado);
+  });
+
+  it("Operacion en la que el numero generado del 8 al 10 se sume +2, en este caso 10", () => {
+    //Arrange
+    const resultadoEsperado: number = 12;
+    const numeroAleatorio: number = 10;
+
+    //Act
+    const resultado = generarNumeroCarta(numeroAleatorio);
+
+    //Assert
+    expect(resultado).toBe(resultadoEsperado);
+  });
+
+  it("Operacion en la que el numero generado del 1 al 7 no se sumara +2, en este caso 7", () => {
+    //Arrange
+    const resultadoEsperado: number = 7;
+    const numeroAleatorio: number = 7;
+
+    //Act
+    const resultado = generarNumeroCarta(numeroAleatorio);
+
+    //Assert
+    expect(resultado).toBe(resultadoEsperado);
+  });
+});
+
+describe("dameUrlCarta", () => {
+  it("Valor de las cartas de AS de copas", () => {
+    //Arrange
+    const numeroCarta = 1;
+    vi.spyOn(partida, "puntos", "get").mockReturnValue(0);
+    const resultadoEsperado = 1;
+    //Act
+    const resultado = sumaPuntuacion(partida.puntos, numeroCarta);
+    //Assert
+    expect(resultado).toBe(resultadoEsperado);
+  });
+
+  it("Valor de las cartas de 2 de copas", () => {
+    //Arrange
+    const numeroCarta = 2;
+    vi.spyOn(partida, "puntos", "get").mockReturnValue(0);
+    const resultadoEsperado = 2;
+    //Act
+    const resultado = sumaPuntuacion(partida.puntos, numeroCarta);
+    //Assert
+    expect(resultado).toBe(resultadoEsperado);
+  });
+
+  it("Valor de las cartas de 3 de copas", () => {
+    //Arrange
+    const numeroCarta = 3;
+    vi.spyOn(partida, "puntos", "get").mockReturnValue(0);
+    const resultadoEsperado = 3;
+    //Act
+    const resultado = sumaPuntuacion(partida.puntos, numeroCarta);
+    //Assert
+    expect(resultado).toBe(resultadoEsperado);
+  });
+
+  it("Valor de las cartas de 4 de copas", () => {
+    //Arrange
+    const numeroCarta = 4;
+    vi.spyOn(partida, "puntos", "get").mockReturnValue(0);
+    const resultadoEsperado = 4;
+    //Act
+    const resultado = sumaPuntuacion(partida.puntos, numeroCarta);
+    //Assert
+    expect(resultado).toBe(resultadoEsperado);
+  });
+
+  it("Valor de las cartas de 5 de copas", () => {
+    //Arrange
+    const numeroCarta = 5;
+    vi.spyOn(partida, "puntos", "get").mockReturnValue(0);
+    const resultadoEsperado = 5;
+    //Act
+    const resultado = sumaPuntuacion(partida.puntos, numeroCarta);
+    //Assert
+    expect(resultado).toBe(resultadoEsperado);
+  });
+
+  it("Valor de las cartas de 6 de copas", () => {
+    //Arrange
+    const numeroCarta = 6;
+    vi.spyOn(partida, "puntos", "get").mockReturnValue(0);
+    const resultadoEsperado = 6;
+    //Act
+    const resultado = sumaPuntuacion(partida.puntos, numeroCarta);
+    //Assert
+    expect(resultado).toBe(resultadoEsperado);
+  });
+
+  it("Valor de las cartas de 7 de copas", () => {
+    //Arrange
+    const numeroCarta = 7;
+    vi.spyOn(partida, "puntos", "get").mockReturnValue(0);
+    const resultadoEsperado = 7;
+    //Act
+    const resultado = sumaPuntuacion(partida.puntos, numeroCarta);
+    //Assert
+    expect(resultado).toBe(resultadoEsperado);
+  });
+
+  it("Valor de las cartas de 10 de copas", () => {
+    //Arrange
+    const numeroCarta = 10;
+    vi.spyOn(partida, "puntos", "get").mockReturnValue(0);
+    const resultadoEsperado = 0.5;
+    //Act
+    const resultado = sumaPuntuacion(partida.puntos, numeroCarta);
+    //Assert
+    expect(resultado).toBe(resultadoEsperado);
+  });
+
+  it("Valor de las cartas de 11 de copas", () => {
+    //Arrange
+    const numeroCarta = 11;
+    vi.spyOn(partida, "puntos", "get").mockReturnValue(0);
+    const resultadoEsperado = 0.5;
+    //Act
+    const resultado = sumaPuntuacion(partida.puntos, numeroCarta);
+    //Assert
+    expect(resultado).toBe(resultadoEsperado);
+  });
+
+  it("Valor de las cartas de 12 de copas", () => {
+    //Arrange
+    const numeroCarta = 12;
+    vi.spyOn(partida, "puntos", "get").mockReturnValue(0);
+    const resultadoEsperado = 0.5;
+    //Act
+    const resultado = sumaPuntuacion(partida.puntos, numeroCarta);
     //Assert
     expect(resultado).toBe(resultadoEsperado);
   });
